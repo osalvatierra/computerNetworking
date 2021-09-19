@@ -10,7 +10,7 @@ def webServer(port=13331):
     serverSocket.bind(("", port))
     # Fill in start
     serverSocket.listen(1)
-    # print('The server is ready to receive')
+    # print("The server is ready to receive")
     # Fill in end
 
     while True:
@@ -49,8 +49,8 @@ def webServer(port=13331):
         except (ConnectionResetError, BrokenPipeError):
             pass
 
-        serverSocket.close()
-        sys.exit()  # Terminate the program after sending the corresponding data
+    serverSocket.close()
+    sys.exit()  # Terminate the program after sending the corresponding data
 
 
 if __name__ == "__main__":
