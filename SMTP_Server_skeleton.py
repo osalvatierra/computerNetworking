@@ -61,6 +61,10 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send message data.
     # Fill in start
     clientsocket.send(msg.encode())
+    recv1 = clientsocket.recv(1024).decode()
+    # print(recv1)
+    if recv1[:3] != '250':
+        print('250 reply not received from server.')
     # Fill in end
 
     # Message ends with a single period.
