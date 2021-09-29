@@ -5,7 +5,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     msg = "\r\n Bueller Bueller Bueller"
     endmsg = "\r\n.\r\n"
 
-    # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope...
+    # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
 
     # Create socket called clientSocket and establish a TCP connection with mailserver and port
 
@@ -61,10 +61,6 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send message data.
     # Fill in start
     clientsocket.send(msg.encode())
-    recv1 = clientsocket.recv(1024).decode()
-    # print(recv1)
-    if recv1[:3] != '250':
-        print('250 reply not received from server.')
     # Fill in end
 
     # Message ends with a single period.
@@ -85,6 +81,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     if recv1[:3] != '250':
         print('250 reply not received from server.')
     # Fill in end
+
 
 if __name__ == '__main__':
     smtp_client(1025, '127.0.0.1')
