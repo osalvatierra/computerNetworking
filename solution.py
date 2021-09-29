@@ -77,6 +77,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     quitcmd = 'QUIT\r\n'
     clientsocket.send(quitcmd.encode())
     clientsocket.close()
+
+    pass
     # Fill in end
 
 
