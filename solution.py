@@ -1,6 +1,4 @@
 from socket import *
-# In order to terminate the program
-import sys
 
 def smtp_client(port=1025, mailserver='127.0.0.1'):
     msg = "\r\n Bueller Bueller Bueller"
@@ -77,9 +75,13 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     quitCmd = 'QUIT\r\n'
     clientSocket.send(quitCmd.encode())
+    recv1 = clientSocket.recv(1024).decode()
+    # print(recv1)
+    if recv1[:3] != '250':
+        print('250 reply not received from server.')
+
     clientSocket.close()
 
-    sys.exit()  # Terminate the program after sending the corresponding data
     # Fill in end
 
 
