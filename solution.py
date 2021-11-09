@@ -33,6 +33,7 @@ def checksum(string):
     return answer
 
 def receiveOnePing(mySocket, ID, timeout, destAddr):
+    global rtt_min, rtt_max, rtt_sum, rtt_cnt
     timeLeft = timeout
 
     while 1:
@@ -50,7 +51,13 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         icmpType, code, mychecksum, packetID, sequence = struct.unpack("bbHHh", icmpHeader)
         if icmpType != 8 and packetID == ID:
             bytesInDouble = struct.calcsize("d")
-            timeSent = struct.unpack("d", recPacket[28:28 + bytesInDouble])[0]
+            timeSent = struct.unpack("d", recPacket[20:28 + bytesInDouble])[0]
+            rtt = (timeReceived - send_time) * 1000
+            rtt_cnt += 1
+            rtt_sum += rtt
+            rtt_min = min(rtt_min, rtt)
+            rtt_max = max(rtt_max, rtt)
+
             return (timeReceived - timeSent) * 1000
         # Fetch the ICMP header from the IP packet
 
