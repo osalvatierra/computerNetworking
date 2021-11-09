@@ -33,6 +33,7 @@ def checksum(string):
     return answer
 
 def receiveOnePing(mySocket, ID, timeout, destAddr):
+    global packageRev, timeRTT
     timeLeft = timeout
 
     while 1:
