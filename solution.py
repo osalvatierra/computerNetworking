@@ -52,7 +52,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         if icmpType != 8 and packetID == ID:
             bytesInDouble = struct.calcsize("d")
             timeSent = struct.unpack("d", recPacket[28:28 + bytesInDouble])[0]
-            rtt = (timeReceived - send_time) * 1000
+            rtt = (timeReceived - timeSent) * 1000
             rtt_cnt += 1
             rtt_sum += rtt
             rtt_min = min(rtt_min, rtt)
