@@ -111,6 +111,12 @@ def doOnePing(destAddr, timeout):
 
 
 def ping(host, timeout=1):
+    global rtt_min, rtt_max, rtt_sum, rtt_cnt
+    rtt_min = float('+inf')
+    rtt_max = float('-inf')
+    rtt_sum = 0
+    rtt_cnt = 0
+    cnt = 0
     # timeout=1 means: If one second goes by without a reply from the server,  	# the client assumes that either the client's ping or the server's pong is lost
     dest = gethostbyname(host)
     print("Pinging " + dest + " using Python:")
