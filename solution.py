@@ -169,8 +169,6 @@ def get_route(hostname):
                 break
             finally:
                 mySocket.close()
-
-get_route("www.google.com")  # USA - North America
-print("--------------------------------------------")
+    return tracelist2
 
 
