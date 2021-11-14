@@ -124,7 +124,7 @@ def get_route(hostname):
 
                 #Fill in end
                 try: #try to fetch the hostname
-                    host = socket.gethostbyaddr(addr[0])[0]
+                    host = gethostbyaddr(hostname)[0]
                     #Fill in start
                     #Fill in end
                 except herror:   #if the host does not provide a hostname
