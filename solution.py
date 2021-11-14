@@ -169,24 +169,8 @@ def get_route(hostname):
                 break
             finally:
                 mySocket.close()
-        print("--------------------------------------------")
-        print('www.google.com')
-        print("--------------------------------------------")
+
         get_route("www.google.com")  # USA - North America
         print("--------------------------------------------")
-        print('www.china.org.cn')
-        print("--------------------------------------------")
-        get_route('www.china.org.cn')  # China - Asia
-        print("--------------------------------------------")
-        print('www.sweden.se')
-        print("--------------------------------------------")
-        get_route('www.sweden.se')  # Sweden - Europe
-        print("--------------------------------------------")
-        print('www.mybroadband.co.za')
-        print("--------------------------------------------")
-        get_route('www.mybroadband.co.za')  # some place in Africa
-
-
-        get_route('www.makeinindia.com')
 
 
