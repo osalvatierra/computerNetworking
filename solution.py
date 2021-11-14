@@ -170,7 +170,7 @@ def get_route(hostname):
             finally:
                 mySocket.close()
 
-        get_route("www.google.com")  # USA - North America
-        print("--------------------------------------------")
+get_route("www.google.com")  # USA - North America
+print("--------------------------------------------")
 
 
