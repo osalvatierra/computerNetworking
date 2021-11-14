@@ -48,7 +48,7 @@ def build_packet():
     myChecksum = 0
     # Make a dummy header with a 0 checksum
     # Get process ID
-    myID = os.getpid() & 0xFFFF
+    ID = os.getpid() & 0xFFFF
     sendTime = time.time()
     # struct -- Interpret strings as packed binary data
     header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, myChecksum, ID, 1)
@@ -171,4 +171,3 @@ def get_route(hostname):
                 mySocket.close()
 
 
-                
