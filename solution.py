@@ -125,13 +125,13 @@ def get_route(hostname):
                 #Fill in end
                 try: #try to fetch the hostname
                     # Fill in start
-                    host = gethostbyaddr(socket.gethostname())[0]
+                    host = gethostbyaddr(gethostname())[0]
                     #Fill in end
                 except herror:   #if the host does not provide a hostname
                     #Fill in start
                     host = "hostname not returnable"
                     #Fill in end
-    
+
                 if types == 11:
                     bytes = struct.calcsize("d")
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
