@@ -137,10 +137,7 @@ def get_route(hostname):
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
                     #You should add your responses to your lists here
-                    rtt = str(round(timeSent * 1000)) + "ms"
-                    tracelist1.append([str(ttl), rtt, str(addr[0]), host])
-                    # print("List 1", tracelist1)
-                    tracelist2.append(tracelist1[-1])
+                    print (" %d   rtt=%.0f ms %s" % (ttl,(timeReceived -t)*1000, addr[0]))
                     # print("List 2",tracelist2)
                     #Fill in end
                 elif types == 3:
@@ -149,22 +146,19 @@ def get_route(hostname):
                     #Fill in start
                     rtt = "*"
                     #You should add your responses to your lists here
-                    tracelist1.append([str(ttl), rtt, 'Request timed out'])
-                    tracelist2.append(tracelist1[-1])
+                    print (" %d   rtt=%.0f ms %s" % (ttl,(timeReceived -t)*1000, addr[0]))
                     #Fill in end
                 elif types == 0:
                     bytes = struct.calcsize("d")
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
-                    rtt = str(round((t - timeSent) * 1000)) + "ms"
                     #You should add your responses to your lists here and return your list if your destination IP is met
-                    tracelist1.append([str(ttl), rtt, str(addr[0]), host])
-                    tracelist2.append(tracelist1[-1])
+                    print (" %d   rtt=%.0f ms %s" % (ttl,(timeReceived -timeSent)*1000, addr[0]))
                     #Fill in end
                 else:
                     #Fill in start
                     #If there is an exception/error to your if statements, you should append that to your list here
-                    tracelist1.append([ttl, '*', 'Error Occurred'])
+                    print ("error")
                     #Fill in end
                 break
             finally:
